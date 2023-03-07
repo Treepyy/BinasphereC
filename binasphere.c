@@ -97,6 +97,73 @@ void formulaRepeater(string formula, string newFormula, int totalWords){
   strcpy(newFormula, repeated);
 }
 
+// unused
+void appendFragment(string base, string appended, string newWord){
+	
+	int i;
+	for (i = 0; i < strlen(base); i++){
+		if (base[i] == 'x'){
+			base[i] = '\0';
+			base[i+1] = '\0';
+			strcat(base, appended);
+			break;
+		}
+	}
+	
+}
+
+// to be cleaned
+void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
+	
+	
+	int i = 0, j = 0;
+	int k = 0, l = 0;
+	
+	printf("\nACTUAL CHORUS:\n");
+	while (i < totalLine0){
+		if (chorusLines[0][i][k] == 'x'){
+			chorusLines[0][i][k] = '\0';
+			
+			if (chorusLines[0][i][k+1] == ' ');
+				chorusLines[0][i][k+1] = '\0';
+		}
+		else{
+			printf("%c", chorusLines[0][i][k]);
+		}
+
+	    k++;
+	    
+	    if (k > strlen(chorusLines[0][i])){
+	    	k = 0;
+	    	i++;
+		}
+	}
+	
+	printf("\n");
+	
+	while (j < totalLine1){
+		
+		if (chorusLines[1][j][l] == 'x'){
+			chorusLines[1][j][l] = '\0';
+			
+			if (chorusLines[1][j][l+1] == ' ');
+				chorusLines[1][j][l+1] = '\0';
+
+		}
+		else{
+			printf("%c", chorusLines[1][j][l]);
+		}
+
+	    l++;
+		if (l > strlen(chorusLines[1][j])){
+			l = 0;
+	    	j++;
+		}
+	}
+	
+	
+}
+
 int main()
 {
     string sentenceInput, formulaInput, newFormula;
@@ -141,6 +208,8 @@ int main()
 	for (i = 0; i < totalLine1; i++){
 	    printf("%s ", chorusLines[1][i]);
 	}
+	printf("\n");
+	displayActual(chorusLines, totalLine0, totalLine1);
 
     return 0;
 }
