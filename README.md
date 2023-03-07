@@ -10,11 +10,11 @@ Basic Hymmnos Binasphere Chorus decoder written in C. (WIP)
 ### Current Features
 
  - Formula and fragmented chorus line input
- - Chorus defragmentation
+ - Chorus rearrangement based on formula
+ - Full decoding (removal of word fragmentation)
  ### TBA
- 
- - [ ] Full decoding (remove word fragmentation)
+
  - [ ] Hymmnos dictionary support
  - [ ] Encoding (plaintext to Binasphere)
- - [ ] Song search and recognition
+ - [ ] Song search and lyric recognition
 
