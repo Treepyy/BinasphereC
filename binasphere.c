@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX_SIZE 129
+#define MAX_SIZE 321
+#define MAX_ARR 129
 
 typedef char string[MAX_SIZE];
-typedef string stringArr[MAX_SIZE];
+typedef string stringArr[MAX_ARR];
 
 void splitSentence(string sentence, stringArr words, int* totalWords){
     int i = 0, j = 0, k = 0;
@@ -145,6 +146,8 @@ void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
 		}
 	}
 	
+	printf("\n");
+	
 	while (j < totalLine1){
 		
 		if (chorusLines[1][j][l] == 'x'){
@@ -155,7 +158,12 @@ void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
 
 		}
 		else{
-			printf("%c", chorusLines[1][j][l] + 32);
+			if (j == 0 && l == 0){
+				printf("%c", chorusLines[1][j][l]);
+			}
+			else{
+				printf("%c", chorusLines[1][j][l] + 32);
+			}
 		}
 
 	    l++;
