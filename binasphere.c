@@ -128,7 +128,13 @@ void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
 				chorusLines[0][i][k+1] = '\0';
 		}
 		else{
-			printf("%c", chorusLines[0][i][k]);
+			
+			if (i == 0 && k == 0){
+				printf("%c", chorusLines[0][i][k]);
+			}
+			else{
+				printf("%c", chorusLines[0][i][k] + 32);
+			}
 		}
 
 	    k++;
@@ -138,8 +144,6 @@ void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
 	    	i++;
 		}
 	}
-	
-	printf("\n");
 	
 	while (j < totalLine1){
 		
@@ -151,7 +155,7 @@ void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
 
 		}
 		else{
-			printf("%c", chorusLines[1][j][l]);
+			printf("%c", chorusLines[1][j][l] + 32);
 		}
 
 	    l++;
@@ -161,6 +165,7 @@ void displayActual(stringArr chorusLines[2], int totalLine0, int totalLine1){
 		}
 	}
 	
+	printf("\n");
 	
 }
 
