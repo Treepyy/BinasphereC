@@ -1,4 +1,4 @@
-﻿## Hymmnos Binasphere Chorus Decoder V0.1
+﻿## Hymmnos Binasphere Chorus Decoder V0.2
  Sources:
  
 [Hymmnos - Conlang Wiki](https://conlang.fandom.com/wiki/Hymmnos)
