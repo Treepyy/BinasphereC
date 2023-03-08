@@ -18,3 +18,6 @@ Basic Hymmnos Binasphere Chorus decoder written in C. (WIP)
  - [ ] Encoding (plaintext to Binasphere)
  - [ ] Song search and lyric recognition
 
+ ### ...
+![](https://cdn.discordapp.com/attachments/690562580342767647/1082663199561764924/image_32.png)
+
