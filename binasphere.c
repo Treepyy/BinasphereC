@@ -49,6 +49,7 @@ int wordCount(string sentence){
 
 int scanFormula(string formula){
 	int i;
+
 	for (i = 0; i < strlen(formula); i++){
 		if (formula[i] != '0' && formula[i] != '1'){
 			return 1;
@@ -84,7 +85,7 @@ void binasphereSplit(string chorus, string formula, stringArr chorusLines[2], in
 
 void formulaRepeater(string formula, string newFormula, int totalWords){
   int size = totalWords;
-  char repeated[size];
+  char repeated[size+1];
   int i = 0, j = 0;
   while (i < size){
     repeated[i] = formula[j];
@@ -182,47 +183,54 @@ int main()
     string sentenceInput, formulaInput, newFormula;
     stringArr chorusLines[2];
     int i, totalLine0, totalLine1, totalWords;
+    int loopInput = 0, loop = 0;
     
-    printf("Enter Binasphere Chorus:\n=>");
-    scanf(" %[^\n]", sentenceInput);
-    printf("\nEnter Binasphere Formula:\nEXEC hymme 2X1/0>>");
-    scanf(" %[^\n]", formulaInput);
+    scanf("%d", &loopInput);
+    while (loop < loopInput){
     
-    int invalidFormula = scanFormula(formulaInput);
-    
-    if (invalidFormula){
-    	while (invalidFormula){
-    		printf("Invalid formula!\n");
-    		printf("Enter Binasphere Formula:\nEXEC hymme 2X1/0>>");
-    		scanf(" %[^\n]", formulaInput);
-    		invalidFormula = scanFormula(formulaInput);
+    	printf("\n");
+	    printf("Enter Binasphere Chorus:\n=>");
+	    scanf(" %[^\n]", sentenceInput);
+	    printf("\nEnter Binasphere Formula:\nEXEC hymme 2X1/0>>");
+	    scanf(" %[^\n]", formulaInput);
+	    
+	    int invalidFormula = scanFormula(formulaInput);
+	    
+	    if (invalidFormula){
+	    	while (invalidFormula){
+	    		printf("Invalid formula!\n");
+	    		printf("Enter Binasphere Formula:\nEXEC hymme 2X1/0>>");
+	    		scanf(" %[^\n]", formulaInput);
+	    		invalidFormula = scanFormula(formulaInput);
+			}
 		}
-	}
-	
-	totalWords = wordCount(sentenceInput);
-	
-	if (totalWords > strlen(formulaInput)){
-		formulaRepeater(formulaInput, newFormula, totalWords);
-		binasphereSplit(sentenceInput, newFormula, chorusLines, &totalLine0, &totalLine1);
 		
-		printf("\nCONVERTED FORMULA:\nEXEC hymme 2X1/0>>");
-		printf("%s\n", newFormula);
+		totalWords = wordCount(sentenceInput);
+		
+		if (totalWords > strlen(formulaInput)){
+			formulaRepeater(formulaInput, newFormula, totalWords);
+			binasphereSplit(sentenceInput, newFormula, chorusLines, &totalLine0, &totalLine1);
+			
+			printf("\nCONVERTED FORMULA:\nEXEC hymme 2X1/0>>");
+			printf("%s\n", newFormula);
+		}
+		
+		else {
+			binasphereSplit(sentenceInput, formulaInput, chorusLines, &totalLine0, &totalLine1);
+		}
+		
+		printf("\nDEFRAGMENTED CHORUS:\n");
+		for (i = 0; i < totalLine0; i++){
+		    printf("%s ", chorusLines[0][i]);
+		}
+		printf("\n");
+		for (i = 0; i < totalLine1; i++){
+		    printf("%s ", chorusLines[1][i]);
+		}
+		printf("\n");
+		displayActual(chorusLines, totalLine0, totalLine1);
+		printf("\n");
+		loop++;
 	}
-	
-	else {
-		binasphereSplit(sentenceInput, formulaInput, chorusLines, &totalLine0, &totalLine1);
-	}
-	
-	printf("\nDEFRAGMENTED CHORUS:\n");
-	for (i = 0; i < totalLine0; i++){
-	    printf("%s ", chorusLines[0][i]);
-	}
-	printf("\n");
-	for (i = 0; i < totalLine1; i++){
-	    printf("%s ", chorusLines[1][i]);
-	}
-	printf("\n");
-	displayActual(chorusLines, totalLine0, totalLine1);
-
     return 0;
 }
